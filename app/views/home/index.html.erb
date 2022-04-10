@@ -13,7 +13,7 @@
   </div>
 
   <div class="d-flex justify-content-around align-items-center">
-    <a class="btn btn-primary btn-lg me-5">Sign In</a>
-    <a class="btn btn-outline-secondary btn-lg">Sign Up</a>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg me-5" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-secondary btn-lg" %>
   </div>
 </div>
