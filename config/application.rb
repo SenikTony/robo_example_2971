@@ -33,5 +33,18 @@ module RoboExample2971
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.test_framework false
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.channel assets: false
+    end
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, _instance|
+      # "<div class=\"field_with_errors control-group error\">#{html_tag}</div>".html_safe
+      html_tag.html_safe
+    }
   end
 end

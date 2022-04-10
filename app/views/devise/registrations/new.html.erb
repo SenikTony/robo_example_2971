@@ -1,0 +1,49 @@
+<% error_messages = resource.errors.messages %>
+
+<div class="d-flex flex-column" style="width: 300px;">
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "needs-validation" }) do |f| %>
+    <div class="field mb-3">
+      <%= f.label :email, class: "form-label" %><br />
+      <%= f.email_field :email,
+                        autofocus: true,
+                        autocomplete: "email",
+                        class: "form-control #{"is-invalid" if error_messages.present? && error_messages.key?(:email)}" %>
+      <% if error_messages.present? && error_messages.key?(:email) %>
+        <div class="invalid-feedback"><%= error_messages[:email].uniq.join(", ") %></div>
+      <% end %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.label :password, class: "form-label" %>
+
+      <% if @minimum_password_length %>
+        <em class="form-text">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+
+      <%= f.password_field :password,
+                           autocomplete: "new-password",
+                           class: "form-control #{"is-invalid" if error_messages.present? && error_messages.key?(:password)}" %>
+
+      <% if error_messages.present? && error_messages.key?(:password) %>
+        <div class="invalid-feedback"><%= error_messages[:password].uniq.join(", ") %></div>
+      <% end %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.label :password_confirmation, class: "form-label" %><br />
+      <%= f.password_field :password_confirmation,
+                           autocomplete: "new-password",
+                           class: "form-control #{"is-invalid" if error_messages.present? && error_messages.key?(:password_confirmation)}" %>
+
+      <% if error_messages.present? && error_messages.key?(:password_confirmation) %>
+        <div class="invalid-feedback"><%= error_messages[:password_confirmation].uniq.join(", ") %></div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn btn-primary btn-lg w-100" %>
+    </div>
+  <% end %>
+</div>

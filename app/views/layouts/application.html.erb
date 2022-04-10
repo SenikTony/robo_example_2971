@@ -13,36 +13,15 @@
 
   <body class="d-flex h-100">
     <div class="d-flex flex-column h-100 w-100 mx-auto bg-body">
-      <header>
-        <nav class="navbar navbar-dark bg-dark">
-          <div class="container-fluid">
-            <%= link_to "Robo Example App", root_path, class: "navbar-brand" %>
+      <%= render "layouts/header" %>
 
-            <ul class="navbar-nav mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <%= link_to "Sign In", "#", class: "nav-link" %>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <%= render "layouts/flash_messages" %>
 
       <main class="d-flex flex-column justify-content-start h-100 p-2 mx-auto bg-body">
         <%= yield %>
       </main>
 
-      <footer class="p-1 text-center bg-light">
-        <p class="mt-3">
-          <small>
-            © 2022 <%= mail_to "tony.senik@gmail.com" %>
-          </small>
-        </p>
-        <p>
-          <small>
-            Robots lovingly delivered by <%= link_to "robohash.org", "https://robohash.org" %>
-          </small>
-        </p>
-      </footer>
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>
