@@ -1,6 +1,7 @@
 # robo_example_2971
 
 - Ruby on Rails 7;
+- Docker;
 - [Devise](https://github.com/heartcombo/devise);
 - [React](https://github.com/reactjs/react-rails);
 - [Bootstrap](
