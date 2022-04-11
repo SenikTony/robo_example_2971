@@ -1,0 +1,15 @@
+import components from "./**/*.jsx"
+
+let componentsContext = {}
+components.forEach((component) => {
+  componentsContext[component.name.replace(".jsx", "")] = component.module.default
+})
+
+const ReactRailsUJS = require("react_ujs")
+
+ReactRailsUJS.getConstructor = (name) => {
+  return componentsContext[name]
+}
+ReactRailsUJS.handleEvent('turbo:load', ReactRailsUJS.handleMount, false);
+ReactRailsUJS.handleEvent('turbo:frame-load', ReactRailsUJS.handleMount, false);
+ReactRailsUJS.handleEvent('turbo:before-render', ReactRailsUJS.handleUnmount, false);
